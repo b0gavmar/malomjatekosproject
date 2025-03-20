@@ -78,3 +78,9 @@ else
     Console.WriteLine($"{jatekos3.Name} semleges összpontszámmal rendelkezik.");
 }
 Console.WriteLine($"{jatekos3.Draws} döntetlent játszott.");
+
+Console.WriteLine("4. feladat");
+jatekos2.ComparePlayers(jatekos3);
+
+Console.WriteLine($"{jatekos2.Name} szintje: {jatekos2.Rank}");
+Console.WriteLine($"{jatekos3.Name} szintje: {jatekos3.Rank}");
