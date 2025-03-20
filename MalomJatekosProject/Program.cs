@@ -84,3 +84,14 @@ jatekos2.ComparePlayers(jatekos3);
 
 Console.WriteLine($"{jatekos2.Name} szintje: {jatekos2.Rank}");
 Console.WriteLine($"{jatekos3.Name} szintje: {jatekos3.Rank}");
+
+Console.WriteLine("5. feladat");
+jatekos2.Lose(1000);
+try
+{
+    jatekos2.Win(1);   
+}
+catch (Exception ex)
+{
+    Console.WriteLine(ex.Message);
+}
