@@ -13,9 +13,9 @@ namespace MalomJatekosProject.Models
         public string Name { get; set; }
         public Guid Id { get; } = Guid.NewGuid();
         public bool Lost => Points <= 0;
-        public int Wins { get; set; }
-        public int Losses { get; set; }
-        public int Draws { get; set; }
+        public int Wins { get; private set; }
+        public int Losses { get; private set; }
+        public int Draws { get; private set; }
 
         public Jatekos(int startingPoints, string name)
         {
@@ -32,8 +32,12 @@ namespace MalomJatekosProject.Models
         {
             if (!Lost)
             {
-                Points += points;
+                Points += Math.Abs(points);
                 Wins++;
+            }
+            else
+            {
+                throw new InvalidOperationException("A játékos már vesztett!");
             }
         }
 
@@ -41,8 +45,20 @@ namespace MalomJatekosProject.Models
         {
             if (!Lost)
             {
-                Points -= points;
+                Points -= Math.Abs(points);
                 Losses++;
+            }
+            else
+            {
+                throw new InvalidOperationException("A játékos már vesztett!");
+            }
+        }
+
+        public void Draw()
+        {
+            if (!Lost)
+            {
+                Draws++;
             }
             else
             {

@@ -12,7 +12,7 @@ try
 Jatekos jatekos2 = new Jatekos(100, "Pozitiv Pista");
 Console.WriteLine(jatekos2);
 
-Console.WriteLine("2. feladat");
+Console.WriteLine("\n2. feladat");
 try
 {
     jatekos2.Win(50);
@@ -44,9 +44,37 @@ catch (Exception ex)
 Console.WriteLine(jatekos2.Name + " aktuális pontszáma: " + jatekos2.Points);
 if (jatekos2.Losses < jatekos2.Wins)
 {
-    Console.WriteLine("Több győzelme van mint veresége/Nyerő játékos");
+    Console.WriteLine("Több győzelme van mint veresége azaz Nyerő játékos.");
 }
 else
 {
-    Console.WriteLine("Többször vesztett mint nyert/Vesztő játékos");
+    Console.WriteLine("Többször vesztett mint nyert azaz Vesztő játékos.");
 }
+
+Console.WriteLine("\n3. feladat");
+Jatekos jatekos3 = new Jatekos(80, "Jatekos Janos");
+
+try
+{
+    jatekos3.Win(20);
+    jatekos3.Win(10);
+    jatekos3.Draw();
+}
+catch (Exception ex)
+{
+    Console.WriteLine(ex.Message);
+}
+
+if(jatekos3.StartingPoints > jatekos3.Points)
+{
+    Console.WriteLine($"{jatekos3.Name} negatív összpontszámmal rendelkezik.");
+}
+else if (jatekos3.StartingPoints < jatekos3.Points)
+{
+    Console.WriteLine($"{jatekos3.Name} pozitív összpontszámmal rendelkezik.");
+}
+else
+{
+    Console.WriteLine($"{jatekos3.Name} semleges összpontszámmal rendelkezik.");
+}
+Console.WriteLine($"{jatekos3.Draws} döntetlent játszott.");
